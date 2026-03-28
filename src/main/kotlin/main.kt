@@ -1,15 +1,3 @@
-/*interface numericalvalue
-{
-    fun integer_data(val idv): Int
-    {
-        var i: Int = 0
-        while(i < idv)
-        {
-            i++
-        }
-        return i
-    }
-}*/
 //Integer data Generator function
 // signed
 fun byte_data_generator(){}
@@ -34,16 +22,36 @@ fun long_data_generator(){}
 
 fun main()
 {
+    //variable assignment
+    var f_n:Int = 0
+    var s_n:Int = 0
+    val symbole_user: String ="+"
     println("kotlin compiler fuzzer(kai) 2026 GSOC")
     //generate the integer value for user requirement
-    print(int_data_generator(100))
+    //print(int_data_generator(100))
+    var fuzz_test_int = int_data_generator(578)
+    for(i in fuzz_test_int)
+    {
+        f_n = i
+        println(f_n)
+        s_n = i
+    }
 
 
-
-
-
-
-    //var data_collect: List<Int> = listOf(c.integer_data(10))
-    //println(data_collect)
-    //println(c.integer_data(10))
+    println("---------------Simple calculator-------------------")
+    //This is user requirement and user use the app
+    /*println("Enter First Number : ")
+    val f_n = readln().toInt()
+    println("Enter the Symbole :")
+    val symbole_user = readLine()
+    println("Enter second Number :")
+    val s_n = readln().toInt()*/
+    when(symbole_user)
+    {
+        "+" -> println(f_n + s_n)
+        "-"-> println(f_n - s_n)
+        "*" -> println(f_n * s_n)
+        "/" -> println(f_n / s_n)
+        else -> println("Unknown symbole :(")
+    }
 }
